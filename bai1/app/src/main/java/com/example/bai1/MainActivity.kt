@@ -5,23 +5,23 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.example.bai1.R
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            GreetingCard("Bảo Hoàng", "Chúc bạn học Android vui vẻ!")
+            GreetingCardTheme {
+                GreetingCard("Bảo Hoàng", "Siuuuuuuuuuuuuuuuuuuu")
+            }
         }
     }
 }
@@ -36,30 +36,27 @@ fun GreetingCard(name: String, message: String) {
         verticalArrangement = Arrangement.Center
     ) {
         Image(
-            painter = painterResource(id = R.drawable.ic_launcher_foreground),
+            painter = painterResource(id = R.drawable.a7),
             contentDescription = "Ảnh minh họa",
             modifier = Modifier.size(120.dp)
         )
         Spacer(modifier = Modifier.height(16.dp))
-        androidx.compose.material.Text(  // Bạn vẫn có thể dùng Text cơ bản mà không cần theme
+        Text(
             text = "Xin chào $name!",
-            fontSize = 24.sp,
-            fontWeight = FontWeight.Bold,
-            color = Color.Black,
-            textAlign = TextAlign.Center
+            style = MaterialTheme.typography.headlineSmall
         )
         Spacer(modifier = Modifier.height(8.dp))
-        androidx.compose.material.Text(
+        Text(
             text = message,
-            fontSize = 16.sp,
-            color = Color.DarkGray,
-            textAlign = TextAlign.Center
+            style = MaterialTheme.typography.bodyMedium
         )
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun GreetingCardPreview() {
-    GreetingCard("Bảo Hoàng", "Học Compose dễ hơn bạn nghĩ 😉")
+    GreetingCardTheme {
+        GreetingCard("Bảo Hoàng", "Học Compose dễ hơn bạn nghĩ 😉")
+    }
 }

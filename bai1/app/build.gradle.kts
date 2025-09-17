@@ -2,7 +2,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("org.jetbrains.kotlin.plugin.compose") version "1.9.10"
+    id("org.jetbrains.kotlin.plugin.compose") version "2.0.0"
 }
 
 android {
@@ -32,7 +32,7 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = "21"
     }
 }
 
@@ -45,4 +45,6 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling:1.6.0")
     implementation("androidx.compose.material:material:1.6.0") // Nếu bạn vẫn dùng material
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("androidx.compose.material3:material3:1.2.1")
+    implementation(libs.material)
 }

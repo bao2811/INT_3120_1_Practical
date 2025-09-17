@@ -1,57 +1,32 @@
 package com.example.bai1
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+private val LightColors = lightColorScheme(
+    primary = Color(0xFF6750A4),
+    secondary = Color(0xFF625B71),
+    tertiary = Color(0xFF7D5260)
+)
 
-// Theme tối giản
-object SimpleTheme {
-    val background = Color(0xFFF2F2F2)
-    val primaryText = Color.Black
-    val secondaryText = Color.DarkGray
-    val spacing = 16.dp
-
-    val headlineStyle = TextStyle(fontSize = 24.sp, color = primaryText)
-    val bodyStyle = TextStyle(fontSize = 16.sp, color = secondaryText)
-}
+private val DarkColors = darkColorScheme(
+    primary = Color(0xFFCFBCFF),
+    secondary = Color(0xFFCCC2DC),
+    tertiary = Color(0xFFEFB8C8)
+)
 
 @Composable
-fun GreetingCard(name: String, message: String, image: Painter) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(SimpleTheme.spacing),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        Image(
-            painter = image,
-            contentDescription = "Ảnh minh họa",
-            modifier = Modifier.size(120.dp)
-        )
-        Spacer(modifier = Modifier.height(SimpleTheme.spacing))
-        Text(text = "Xin chào $name!", style = SimpleTheme.headlineStyle)
-        Spacer(modifier = Modifier.height(8.dp))
-        Text(text = message, style = SimpleTheme.bodyStyle)
-    }
-}
+fun GreetingCardTheme(
+    darkTheme: Boolean = false, // bạn có thể dùng isSystemInDarkTheme() nếu muốn auto
+    content: @Composable () -> Unit
+) {
+    val colors = if (darkTheme) DarkColors else LightColors
 
-@Composable
-fun GreetingCardPreview(image: Painter) {
-    Box(modifier = Modifier.fillMaxSize().padding(SimpleTheme.spacing), contentAlignment = Alignment.Center) {
-        GreetingCard(
-            name = "Bảo Hoàng",
-            message = "Học Compose dễ hơn bạn nghĩ 😉",
-            image = image
-        )
-    }
+    MaterialTheme(
+        colorScheme = colors,
+        typography = MaterialTheme.typography,
+        content = content
+    )
 }
