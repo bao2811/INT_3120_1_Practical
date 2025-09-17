@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center_horizontal">
+
+    <!-- Nút TOAST -->
+    <Button
+        android:id="@+id/button_toast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TOAST"
+        android:onClick="showToast"
+        android:textColor="@android:color/white"/>
+
+    <!-- TextView để hiển thị số đếm -->
+    <TextView
+        android:id="@+id/show_count"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="#FFFF00"
+        android:text="Xin chào các bạn"
+        android:textSize="100sp"
+        android:textStyle="bold" />
+
+    <!-- Nút COUNT -->
+    <Button
+        android:id="@+id/button_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="NEXT"
+        android:onClick="countUp"
+        android:textColor="@android:color/white"/>
+
+</LinearLayout>
